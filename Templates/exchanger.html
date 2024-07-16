@@ -1,0 +1,118 @@
+{% load static %}
+<!DOCTYPE html>
+<!-- Coding By CodingNepal - youtube.com/codingnepal -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>KrptoMoon Exchanger</title>
+    <link rel="stylesheet" href="{% static 'exchanger/style.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- FontAweome CDN Link for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+  <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .top-bar {
+            background-color: #f8f9fa;
+            border-bottom: 1px solid #e9ecef;
+            padding: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .latest-news {
+            background-color: #303f9f;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-left: 20px;
+        }
+        .news-ticker {
+            flex-grow: 1;
+            white-space: nowrap;
+            overflow: hidden;
+            margin: 0 20px;
+        }
+        .news-ticker span {
+            display: inline-block;
+            padding-left: 100%;
+            animation: ticker 30s linear infinite;
+        }
+        .time-date {
+            background-color: #dc3545;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            margin-right: 20px;
+        }
+        @keyframes ticker {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(-100%, 0); }
+        }
+    </style>
+  </head>
+  <body>
+
+    <div class="wrapper">
+        <div class="news-ticker" style="color: red;">
+            <span>Plastik karta raqamini olishimizni sababi sizga o'zbek so'mini yuborish. Plastik kartadagi pulni o'g'rlash uchun emas!</span>
+  </div>
+      <header>Ayriboshlash</header>
+      <form action="/exchanger/exchange/" method="post"> {% csrf_token %}
+        <div class="amount">
+          <p>Qancha</p>
+          <input type="text" name="amount" placeholder="1500">
+        </div>
+        <div class="amount">
+          <p>Telegram Username</p>
+          <input type="text" name="username" placeholder="@ahmad">
+        </div>
+        <div class="credit_card">
+          <p>Plastik karta raqami</p>
+          <input type="text" name="credit_card" placeholder="9860 5847 5412 5851">
+        </div>
+          <div class="credit_card">
+          <p>Plastik karta egasi</p>
+          <input type="text" name="credit_card_placeholder" placeholder="Olimov Olim">
+        </div>
+
+        <div class="drop-list">
+                <div class="from">
+                    <p>Qaysi valyutadan</p>
+                    <div class="select-box">
+                        <img src="https://cryptologos.cc/logos/bitcoin-btc-logo.png" alt="Bitcoin">
+                        <select name="valyuta">
+                            <option value="NOT">Notcoin</option>
+                            <option value="TAPSWAP">TapSwap</option>
+                            <option value="Hamster">Hamster Kombat</option>
+                            <option value="BNB">Binance Coin</option>
+                        </select>
+                    </div>
+                </div>
+<!--                <div class="icon"><i class="fas fa-exchange-alt"></i></div>-->
+                <div class="to">
+                    <p>Qaysi valyutaga</p>
+                    <div class="select-box">
+                        <img src="https://flagcdn.com/48x36/uz.png" alt="O'zbekiston bayrog'i">
+                        <select name="uzs">
+                            <option value="UZS">O'zbekiston so'mi</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        <div class="exchange-rate">🔗Hamyon Raqamiga valyutani o'tkazing:
+gdhsjkd73777382iejdjjd93877r77r</div>
+        <button type="submit">O'tkazdim</button>
+      </form>
+        <div style="color: red;">{{xabar}}</div>
+    </div>
+
+<!--    <script src="{% static 'exchanger/js/country-list.js' %}"></script>-->
+<!--    <script src="{% static 'exchanger/js/script.js' %}"></script>-->
+
+  </body>
+</html>
